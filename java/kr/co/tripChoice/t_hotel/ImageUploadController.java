@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-public class ImageUploadController {
+public class T_hotel_ImageUpload {
 	// 컨트롤러클래스의 로그를 출력
-    private static final Logger logger = LoggerFactory.getLogger(ImageUploadController.class);
+    private static final Logger logger = LoggerFactory.getLogger(T_hotel_ImageUpload.class); //현재 클래스 이름으로 수정하세요.
  
     // 이미지 업로드
     // product_edit페이지에서 맵핑되는 메소드
@@ -41,7 +41,7 @@ public class ImageUploadController {
         // 파일을 바이트 배열로 변환
         byte[] bytes = upload.getBytes();
  
-        // 이미지를 업로드할 디렉토리(배포 디렉토리로 설정)
+        // 이미지를 업로드할 디렉토리(배포 디렉토리로 설정) 실제로 이미지가 저장되는 장소.
         String uploadPath = "C:\\java202102\\workspace_spring\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\tripChoice\\t_hotel\\storage\\";
         
         OutputStream out = new FileOutputStream(new File(uploadPath + fileName));
@@ -56,10 +56,10 @@ public class ImageUploadController {
  
         // 서버=>클라이언트로 텍스트 전송(자바스크립트 실행)
         PrintWriter printWriter = response.getWriter();
-        String fileUrl = "./storage/" + fileName; //db에 이 경로가 통채로 저장됨.
+        String fileUrl = "./storage/" + fileName; //db에 <img src=".storage/파일명"> 으로 저장됨.
         printWriter.println("<script>window.parent.CKEDITOR.tools.callFunction(" + callback + ",'" + fileUrl
                 + "','이미지가 업로드되었습니다.')" + "</script>");
         printWriter.flush();
     }
-	
+
 }//class end
