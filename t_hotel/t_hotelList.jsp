@@ -3,15 +3,24 @@
 <%@ include file="../header.jsp" %>
 
 <!-- 본문 시작-->
-    <c:forEach var="dto" items="${list }">
-    숙소코드 : ${dto.th_code }<br>
-    숙소이름 : ${dto.th_name }<br>
-    방 호실 : ${dto.th_room }<br>
-    지역 : ${dto.th_reg }<br>
-    상세설명 : ${dto.th_content }<br>
-    최대인원 : ${dto.th_max }<hr>
+    <table class="table table-hover">
+    <tr style="color: red">
+    	<th>숙소명</th>
+    	<th>방번호</th>
+    	<th>지역</th>
+    	<th>최대예약가능인원</th>
+    </tr>
     
+    <c:forEach var="dto" items="${list}">
+    <tr>
+    	<th><a href="read.do?th_code=${dto.th_code}">${dto.th_name}</a></th>
+    	<th>${dto.th_room}</th>
+    	<th>${dto.th_reg}</th>
+    	<th>${dto.th_max}</th>
+    </tr>
     </c:forEach>
+    	
+    </table>
 <!-- 본문 끝-->
 
 <%@ include file="../footer.jsp" %>        
