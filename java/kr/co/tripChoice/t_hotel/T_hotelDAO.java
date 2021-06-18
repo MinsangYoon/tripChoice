@@ -88,7 +88,33 @@ public class T_hotelDAO {
 		return list;
 	}//list() end
 	
-	
+	public T_hotelDTO read(String th_code) {
+		T_hotelDTO dto = null;
+		try {
+			con = dbopen.getConnection();
+			sql = new StringBuilder();
+			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_max ");
+			sql.append(" FROM t_hotel ");
+			sql.append(" WHERE th_code=? ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, th_code);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				dto = new T_hotelDTO();
+				dto.setTh_code(rs.getString("th_code"));
+				dto.setTh_name(rs.getString("th_name"));
+				dto.setTh_room(rs.getString("th_room"));
+				dto.setTh_reg(rs.getString("th_reg"));
+				dto.setTh_content(rs.getString("th_content"));
+				dto.setTh_max(rs.getInt("th_max"));
+			}//if end
+		}catch(Exception e){
+			System.out.println("숙소상세보기실패:"+e);
+		}finally {
+			DBClose.close(con, pstmt, rs);
+		}//end
+		return dto;
+	}//read() end
 	
 	
 	
