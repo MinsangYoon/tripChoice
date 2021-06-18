@@ -56,7 +56,7 @@ public class T_hotel_ImageUpload {
  
         // 서버=>클라이언트로 텍스트 전송(자바스크립트 실행)
         PrintWriter printWriter = response.getWriter();
-        String fileUrl = "./storage/" + fileName; //db에 <img src=".storage/파일명"> 으로 저장됨.
+        String fileUrl = "./storage/" + fileName; //db에 <img src="./storage/파일명"> 으로 저장됨.
         printWriter.println("<script>window.parent.CKEDITOR.tools.callFunction(" + callback + ",'" + fileUrl
                 + "','이미지가 업로드되었습니다.')" + "</script>");
         printWriter.flush();
