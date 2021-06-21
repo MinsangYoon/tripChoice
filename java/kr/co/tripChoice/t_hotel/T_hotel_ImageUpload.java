@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import net.utility.UploadSaveManager;
+
 @Controller
 public class T_hotel_ImageUpload {
 	// 컨트롤러클래스의 로그를 출력
@@ -36,7 +38,7 @@ public class T_hotel_ImageUpload {
         response.setContentType("text/html; charset=utf-8");
  
         // 업로드한 파일 이름
-        String fileName = upload.getOriginalFilename();
+        //String fileName = upload.getOriginalFilename();
  
         // 파일을 바이트 배열로 변환
         byte[] bytes = upload.getBytes();
@@ -44,7 +46,10 @@ public class T_hotel_ImageUpload {
         // 이미지를 업로드할 디렉토리(배포 디렉토리로 설정) 실제로 이미지가 저장되는 장소.
         String uploadPath = "C:\\java202102\\workspace_spring\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\tripChoice\\t_hotel\\storage\\";
         
-        OutputStream out = new FileOutputStream(new File(uploadPath + fileName));
+        //파일명이 중복되면 자동으로 rename 시켜줌.
+        String fileName2 = UploadSaveManager.saveFileSpring30(upload, uploadPath);
+        
+        OutputStream out = new FileOutputStream(new File(uploadPath + fileName2));
  
         // 서버로 업로드
         // write메소드의 매개값으로 파일의 총 바이트를 매개값으로 준다.
@@ -56,7 +61,7 @@ public class T_hotel_ImageUpload {
  
         // 서버=>클라이언트로 텍스트 전송(자바스크립트 실행)
         PrintWriter printWriter = response.getWriter();
-        String fileUrl = "./storage/" + fileName; //db에 <img src="./storage/파일명"> 으로 저장됨.
+        String fileUrl = "./storage/" + fileName2; //db에 <img src="./storage/파일명"> 으로 저장됨.
         printWriter.println("<script>window.parent.CKEDITOR.tools.callFunction(" + callback + ",'" + fileUrl
                 + "','이미지가 업로드되었습니다.')" + "</script>");
         printWriter.flush();
