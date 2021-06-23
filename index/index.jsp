@@ -40,6 +40,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="#">상품등록</a></li>
 							<li><a href="<%=request.getContextPath()%>/t_hotel/t_hotelForm.do">숙소등록</a></li>
+							<li><a href="<%=request.getContextPath()%>/t_hotel/t_hotel_list_admin.do">숙소목록</a></li>
 							<li><a href="<%=request.getContextPath()%>/t_airp/ticket.do">항공권등록</a></li>
 						</ul></li>
 				</c:if>	
