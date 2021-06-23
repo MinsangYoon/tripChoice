@@ -28,7 +28,37 @@ public class Hotel_reserDAO {
 	
 	
 	//비즈니스로직 구현
-	
+	public int create(Hotel_reserDTO dto) {
+		int cnt=0;
+		try {
+			con = dbopen.getConnection();
+			sql = new StringBuilder();
+			sql.append(" INSERT INTO hotel_reser(th_code,tu_id,thr_member,trip_code) ");
+			sql.append(" VALUES( ?,?,?,'test01' ) ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, dto.getTh_code());
+			pstmt.setString(2, dto.getTu_id());
+			pstmt.setInt(3, dto.getThr_member());
+			//pstmt.setString(4, dto.getTrip_code());
+			cnt = pstmt.executeUpdate();
+			
+			//예약가능여부 'N'으로 변경하기
+			sql.delete(0, sql.length());
+			sql.append(" UPDATE t_hotel ");
+			sql.append(" SET th_situation='N' ");
+			sql.append(" WHERE th_code=? ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, dto.getTh_code());
+			pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println("숙소예약실패:"+e);
+		}finally {
+			DBClose.close(con, pstmt);
+		}//end
+		
+		return cnt;
+	}//create() end
 	
 	
 	
