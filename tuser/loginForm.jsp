@@ -5,6 +5,7 @@
 <%@ include file="../header.jsp" %>
     
 <!-- 본문 시작 loginForm.jsp-->
+<div style="position: relative; left: 40%">
 <h3>* 로 그 인 *</h3>
 <%if (s_tu_id.equals("guest") || s_tu_pw.equals("guest") || s_tu_rank.equals("guest")) {
 	//로그인을 하지 않은 경우    
@@ -24,9 +25,9 @@
 //---------------------------------------------------------
 %>
 	<form name="memfrm" id="memfrm" method="post" action="loginProc.do" onsubmit="return loginCheck()"><!-- myscript.js 코딩 -->
-		<table class="table">
+		<table>
 		<tr>
-			<td>
+			<td width="200px">
 				<input type="text" name="tu_id" id="tu_id" value="<%=c_tu_id%>" placeholder="아이디" maxlength="10" required>
 			</td>
 			<td rowspan="2">
@@ -50,17 +51,24 @@
 		</tr>		  
 		</table>
 	</form>
-<%
-} else {
-    //로그인 성공했다면
-    out.println("<strong>" + s_tu_id + "</strong>님");
-    out.println("<a href='logout.do'>[로그아웃]</a>");
-    out.println("<br><br>");
-    out.println("<a href='memberModify.do'>[회원정보수정]</a>");
-    out.println("<a href='memberWithdraw.do'>[회원탈퇴]</a>");
-}//if end
-%>
 
+<%
+	} else {
+	    //로그인 성공했다면
+	    out.println("<strong>" + s_tu_id + "</strong>님");
+	    out.println("<a href='logout.do'>[로그아웃]</a>");
+	    out.println("<br><br>");
+	    out.println("<a href='memberModify.do'>[회원정보수정]</a>");
+	    out.println("<a href='memberWithdraw.do'>[회원탈퇴]</a>");
+%>
+<!-- 관리자만 보임 -->
+<c:if test="${sessionScope.s_tu_rank =='admin'}">
+	<br><br>관리자입니다.
+</c:if>
+<%     
+	}//if end
+%>
+</div>
 <!-- 본문 끝-->
-        
+<br>        
 <%@ include file="../footer.jsp" %>        
