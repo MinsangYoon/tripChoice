@@ -22,7 +22,7 @@ public class T_hotelDAO {
 	StringBuilder sql=null;
 	ArrayList<T_hotelDTO> list=null;
 	
-	public T_hotelDAO() {//기본생성자 함수
+	public T_hotelDAO() { //기본생성자 함수
 		System.out.println("---T_hotelDAO()객체 생성됨");
 	}//end
 	
