@@ -23,7 +23,7 @@ public class T_hotelCont {
 	
 	
 	
-	//http://localhost:9090/tripChoice/t_hotel/t_hotelForm.do
+	// http://localhost:9090/tripChoice/t_hotel/t_hotelForm.do
 	//숙소등록 페이지 호출
 	@RequestMapping("t_hotel/t_hotelForm.do") 
 	public String t_hotelForm() {
