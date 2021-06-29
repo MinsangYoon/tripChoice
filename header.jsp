@@ -37,10 +37,12 @@
 				<c:if test="${sessionScope.s_tu_rank =='admin'}">
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">관리자메뉴 <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">상품등록</a></li>
+							<li><a href="../trip/createForm.do">상품등록</a></li>
+							<li><a href="../trip/trip_list_admin.do">상품목록</a></li>
 							<li><a href="../t_hotel/t_hotelForm.do">숙소등록</a></li>
 							<li><a href="../t_hotel/t_hotel_list_admin.do">숙소목록</a></li>
 							<li><a href="../t_airp/ticket.do">항공권등록</a></li>
+							<li><a href="../t_airp/list.do">항공권 예약</a></li>
 						</ul></li>
 				</c:if>		
 						
