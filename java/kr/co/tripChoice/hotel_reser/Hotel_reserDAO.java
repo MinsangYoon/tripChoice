@@ -39,7 +39,7 @@ public class Hotel_reserDAO {
 			pstmt.setString(1, dto.getTh_code());
 			pstmt.setString(2, dto.getTu_id());
 			pstmt.setInt(3, dto.getThr_member());
-			//pstmt.setString(4, dto.getTrip_code());
+			//pstmt.setString(4, dto.getTrip_code()); //상품예약페이지와 연결시키면 사용.
 			cnt = pstmt.executeUpdate();
 			
 			//예약가능여부 'N'으로 변경하기
