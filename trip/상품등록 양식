@@ -1,0 +1,91 @@
+<style>
+  *{margin:0;padding:0;}
+  ul,li{list-style:none;}
+  #slide{height:300px;position:relative;overflow:hidden;}
+  #slide ul{width:400%;height:100%;transition:1s;}
+  #slide ul:after{content:"";display:block;clear:both;}
+  #slide li{float:left;width:25%;height:100%;}
+  #slide li:nth-child(1)
+  #slide li:nth-child(2)
+  #slide li:nth-child(3)
+  #slide li:nth-child(4)
+  #slide input{display:none;}
+  #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+  #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+  #pos1:checked~ul{margin-left:0%;}
+  #pos2:checked~ul{margin-left:-100%;}
+  #pos3:checked~ul{margin-left:-200%;}
+  #pos4:checked~ul{margin-left:-300%;}
+  #pos1:checked~.pos>label:nth-child(1){background:#666;}
+  #pos2:checked~.pos>label:nth-child(2){background:#666;}
+  #pos3:checked~.pos>label:nth-child(3){background:#666;}
+  #pos4:checked~.pos>label:nth-child(4){background:#666;}
+</style>
+
+<div id="slide" style="width: 50%; height: 500px; float: left; align: center;">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <ul>
+    <li><img src="./storage/GSBH510_1.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/GSBH510_2.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/GSBH510_3.jpg" width="100%" height="100%"/></li>
+  </ul>
+</div>
+<div style="width: 600px; height: 600px; float: right; text-align: left;">
+	<br>
+	<h1>제주 3일 #우도의밤 #우도백악관펜션1박 #빛의벙커 #수국축제 #우도전기차</h1>
+	<h4>우도에서 1박/제주시에서 1박 진행되는 상품입니다.우도에서는 자유일정/제주도에서는 가이드와 차량이 제공되는 상품입니다.</h4>
+	<hr>
+	<table border="1">
+	<tr>
+		<td width="100px">여행 여정</td>
+		<td>김포-제주(2)-김포 </td>
+	</tr>
+	<tr>
+		<td>미팅 장소</td>
+		<td>김포공항 2층 출발 1시간 전 해당 항공사 키오스크(셀프 체크인)에서 예약번호/성함으로 탑승 수속</td>
+	</tr>	
+	</table>
+	
+</div>
+
+<div style="clear: both;">
+</div>
+
+<div style="float:left; width: 70%;">
+ <ul class="nav nav-tabs">
+    <li class="active" style="width: 200px; text-align: center;"><a data-toggle="tab" href="#home">관광지/식사</a></li>
+    <li style="width: 200px; text-align: center;"><a data-toggle="tab" href="#menu1">일정</a></li>
+    <li style="width: 200px; text-align: center;"><a data-toggle="tab" href="#menu2">약관</a></li>
+    <li style="width: 200px; text-align: center;"><a data-toggle="tab" href="#menu3">참고사항</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>관광</h3>
+      <p>▣ 노을과 일출이 아름다운 제주 속 작은 제주 우도<br>
+우도의 노을&쏟아지는 별빛&햇살가득한 우도의아침<br>
+▣ 우도 전기차 포함<br>
+우도에서 편안한 이동 하실수 있도록 전기차 포함<br>
+▣ 제주 돔베고기정식 ▣ 갈치조림 ▣ 제주물회<br>
+제주에서 꼭 드셔야 하는 음식으로만 엄선하였습니다.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>상해, 질병 국내 입원 의료비 - 급여부분 : 본인 10% 부담금 / 비급여부분 : 본인 20% 부담금 상해,질병 국내외래의료비-의원 1만원,일반병원 1만5천원 종합병원 2만원공제.(1일1회당)
+(상세내역은 홈페이지 하단 보험약관 참고)
+상해,질병 국내처방조제의료비-1일1회당 8천원공제.
+* 휴대품관련-1품목,1조,1쌍당 20만원한도
+</p>
+    </div>
+  </div>
+</div>
