@@ -1,0 +1,365 @@
+--더 스트랫퍼드 호텔
+<style>
+  *{margin:0;padding:0;}
+  ul,li{list-style:none;}
+  #slide{height:300px;position:relative;overflow:hidden;}
+  #slide ul{width:400%;height:100%;transition:1s;}
+  #slide ul:after{content:"";display:block;clear:both;}
+  #slide li{float:left;width:25%;height:100%;}
+  #slide li:nth-child(1)
+  #slide li:nth-child(2)
+  #slide li:nth-child(3)
+  #slide li:nth-child(4)
+  #slide input{display:none;}
+  #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+  #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+  #pos1:checked~ul{margin-left:0%;}
+  #pos2:checked~ul{margin-left:-100%;}
+  #pos3:checked~ul{margin-left:-200%;}
+  #pos4:checked~ul{margin-left:-300%;}
+  #pos1:checked~.pos>label:nth-child(1){background:#666;}
+  #pos2:checked~.pos>label:nth-child(2){background:#666;}
+  #pos3:checked~.pos>label:nth-child(3){background:#666;}
+  #pos4:checked~.pos>label:nth-child(4){background:#666;}
+</style>
+<div id="slide" style="width: 50%; height: 500px; float: left; align: center;">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <ul>
+    <li><img src="./storage/a_TSH310_1.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_TSH310_2.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_TSH310_3.jpg" width="100%" height="100%"/></li>
+  </ul>
+</div>
+<div style="width: 600px; height: 500px; float: right; text-align: left;">
+	<br>
+	<h1>더 스트랫퍼드 호텔</h1>
+	The Stratford Hotel<br>
+	<hr>
+	<table>
+	<tr>
+		<th width="300px">- 무료 Wi-Fi</th>
+		<th>- 나이트클럽</th>
+	</tr>
+	<tr>
+		<th>- 노트북용 금고</th>
+		<th>- 바비큐(BBQ) 시설</th>
+	</tr>
+	<tr>
+		<th>- 환전</th>
+		<th>- 레스토랑</th>
+	</tr>
+	</table>
+	<hr>
+	<span style="font-size: 15px">20 International Way, Olympic Park<br>
+	전화 44-711-12345<br>
+	팩스 82-42-9876543<br>
+	체크인 3:00 PM, 체크아웃 12:00 AM 
+	</span>
+</div>
+
+--트럼프 인터내셔널 호텔 와이키키
+<style>
+  *{margin:0;padding:0;}
+  ul,li{list-style:none;}
+  #slide{height:300px;position:relative;overflow:hidden;}
+  #slide ul{width:400%;height:100%;transition:1s;}
+  #slide ul:after{content:"";display:block;clear:both;}
+  #slide li{float:left;width:25%;height:100%;}
+  #slide li:nth-child(1)
+  #slide li:nth-child(2)
+  #slide li:nth-child(3)
+  #slide li:nth-child(4)
+  #slide input{display:none;}
+  #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+  #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+  #pos1:checked~ul{margin-left:0%;}
+  #pos2:checked~ul{margin-left:-100%;}
+  #pos3:checked~ul{margin-left:-200%;}
+  #pos4:checked~ul{margin-left:-300%;}
+  #pos1:checked~.pos>label:nth-child(1){background:#666;}
+  #pos2:checked~.pos>label:nth-child(2){background:#666;}
+  #pos3:checked~.pos>label:nth-child(3){background:#666;}
+  #pos4:checked~.pos>label:nth-child(4){background:#666;}
+</style>
+<div id="slide" style="width: 50%; height: 500px; float: left; align: center;">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <ul>
+    <li><img src="./storage/a_TIHW707_1.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_TIHW707_2.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_TIHW707_3.jpg" width="100%" height="100%"/></li>
+  </ul>
+</div>
+<div style="width: 600px; height: 500px; float: right; text-align: left;">
+	<br>
+	<h1>트럼프 인터내셔널 호텔 와이키키</h1>
+	Trump International Hotel Waikiki<br>
+	<hr>
+	<table>
+	<tr>
+		<th width="300px">- 무료 Wi-Fi</th>
+		<th>- 룸서비스(24시간)</th>
+	</tr>
+	<tr>
+		<th>- 익스프레스 체크인/체크아웃</th>
+		<th>- 오락실</th>
+	</tr>
+	<tr>
+		<th>- 24시간 프런트 데스크</th>
+		<th>- 레스토랑</th>
+	</tr>
+	</table>
+	<hr>
+	<span style="font-size: 15px">223 Saratoga Road<br>
+	전화 44-711-12345<br>
+	팩스 82-42-9876543<br>
+	체크인 4:00 PM, 체크아웃 12:00 AM 
+	</span>
+</div>
+
+--더 모던 호놀룰루 호텔 402
+<style>
+  *{margin:0;padding:0;}
+  ul,li{list-style:none;}
+  #slide{height:300px;position:relative;overflow:hidden;}
+  #slide ul{width:400%;height:100%;transition:1s;}
+  #slide ul:after{content:"";display:block;clear:both;}
+  #slide li{float:left;width:25%;height:100%;}
+  #slide li:nth-child(1)
+  #slide li:nth-child(2)
+  #slide li:nth-child(3)
+  #slide li:nth-child(4)
+  #slide input{display:none;}
+  #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+  #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+  #pos1:checked~ul{margin-left:0%;}
+  #pos2:checked~ul{margin-left:-100%;}
+  #pos3:checked~ul{margin-left:-200%;}
+  #pos4:checked~ul{margin-left:-300%;}
+  #pos1:checked~.pos>label:nth-child(1){background:#666;}
+  #pos2:checked~.pos>label:nth-child(2){background:#666;}
+  #pos3:checked~.pos>label:nth-child(3){background:#666;}
+  #pos4:checked~.pos>label:nth-child(4){background:#666;}
+</style>
+<div id="slide" style="width: 50%; height: 500px; float: left; align: center;">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <ul>
+    <li><img src="./storage/a_TMHH402_1.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_TMHH402_2.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_TMHH402_3.jpg" width="100%" height="100%"/></li>
+  </ul>
+</div>
+<div style="width: 600px; height: 500px; float: right; text-align: left;">
+	<br>
+	<h1>더 모던 호놀룰루 호텔</h1>
+	The Modern Honolulu Hotel<br>
+	<hr>
+	<table>
+	<tr>
+		<th width="300px">- 나이트클럽</th>
+		<th>- 골프장(3 km 이내)</th>
+	</tr>
+	<tr>
+		<th>- 현금 인출기</th>
+		<th>- 드라이클리닝</th>
+	</tr>
+	<tr>
+		<th>- 무료 Wi-Fi (모든 객실)</th>
+		<th>- 레스토랑</th>
+	</tr>
+	</table>
+	<hr>
+	<span style="font-size: 15px">1775 Ala Moana Boulevard<br>
+	전화 44-721-33345<br>
+	팩스 21-12-1234567<br>
+	체크인 4:00 PM, 체크아웃 10:00 AM 
+	</span>
+</div>
+
+--더 아난디 호텔 앤 스파 상하이 , TAHSS501, 중국 상하이
+<style>
+  *{margin:0;padding:0;}
+  ul,li{list-style:none;}
+  #slide{height:300px;position:relative;overflow:hidden;}
+  #slide ul{width:400%;height:100%;transition:1s;}
+  #slide ul:after{content:"";display:block;clear:both;}
+  #slide li{float:left;width:25%;height:100%;}
+  #slide li:nth-child(1)
+  #slide li:nth-child(2)
+  #slide li:nth-child(3)
+  #slide li:nth-child(4)
+  #slide input{display:none;}
+  #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+  #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+  #pos1:checked~ul{margin-left:0%;}
+  #pos2:checked~ul{margin-left:-100%;}
+  #pos3:checked~ul{margin-left:-200%;}
+  #pos4:checked~ul{margin-left:-300%;}
+  #pos1:checked~.pos>label:nth-child(1){background:#666;}
+  #pos2:checked~.pos>label:nth-child(2){background:#666;}
+  #pos3:checked~.pos>label:nth-child(3){background:#666;}
+  #pos4:checked~.pos>label:nth-child(4){background:#666;}
+</style>
+<div id="slide" style="width: 50%; height: 500px; float: left; align: center;">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <ul>
+    <li><img src="./storage/a_TAHSS501_1.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_TAHSS501_2.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_TAHSS501_3.jpg" width="100%" height="100%"/></li>
+  </ul>
+</div>
+<div style="width: 600px; height: 500px; float: right; text-align: left;">
+	<br>
+	<h1>더 아난디 호텔 앤 스파 상하이</h1>
+	The Anandi Hotel and Spa Shanghai<br>
+	<hr>
+	<table>
+	<tr>
+		<th width="300px">- 룸서비스(24시간)</th>
+		<th>- 골프장(3 km 이내)</th>
+	</tr>
+	<tr>
+		<th>- 무료 Wi-Fi (모든 객실)</th>
+		<th>- 24시간 프런트 데스크</th>
+	</tr>
+	<tr>
+		<th>- 익스프레스 체크인/체크아웃</th>
+		<th>- 렌터카</th>
+	</tr>
+	</table>
+	<hr>
+	<span style="font-size: 15px">No.7,LinHong Road Changning District.<br>
+	전화 44-721-44444<br>
+	팩스 12-44-1234567<br>
+	체크인 3:00 PM, 체크아웃 12:00 AM 
+	</span>
+</div>
+
+--호텔 X 토론토 바이 라이브러리 호텔 컬렉션, HTLHC1301, 캐나다 토론토
+<style>
+  *{margin:0;padding:0;}
+  ul,li{list-style:none;}
+  #slide{height:300px;position:relative;overflow:hidden;}
+  #slide ul{width:400%;height:100%;transition:1s;}
+  #slide ul:after{content:"";display:block;clear:both;}
+  #slide li{float:left;width:25%;height:100%;}
+  #slide li:nth-child(1)
+  #slide li:nth-child(2)
+  #slide li:nth-child(3)
+  #slide li:nth-child(4)
+  #slide input{display:none;}
+  #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+  #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+  #pos1:checked~ul{margin-left:0%;}
+  #pos2:checked~ul{margin-left:-100%;}
+  #pos3:checked~ul{margin-left:-200%;}
+  #pos4:checked~ul{margin-left:-300%;}
+  #pos1:checked~.pos>label:nth-child(1){background:#666;}
+  #pos2:checked~.pos>label:nth-child(2){background:#666;}
+  #pos3:checked~.pos>label:nth-child(3){background:#666;}
+  #pos4:checked~.pos>label:nth-child(4){background:#666;}
+</style>
+<div id="slide" style="width: 50%; height: 500px; float: left; align: center;">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <ul>
+    <li><img src="./storage/a_HTLHC1301_1.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_HTLHC1301_2.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_HTLHC1301_3.jpg" width="100%" height="100%"/></li>
+  </ul>
+</div>
+<div style="width: 600px; height: 500px; float: right; text-align: left;">
+	<br>
+	<h1>호텔 X 토론토 바이 라이브러리 호텔 컬렉션</h1>
+	Hotel X Toronto by Library Hotel Collection<br>
+	<hr>
+	<table>
+	<tr>
+		<th width="300px">- 무료 Wi-Fi (모든 객실)</th>
+		<th>- 레스토랑</th>
+	</tr>
+	<tr>
+		<th>- 도서관</th>
+		<th>- 24시간 프런트 데스크</th>
+	</tr>
+	<tr>
+		<th>- 익스프레스 체크인/체크아웃</th>
+		<th>- 여행 가방 보관 서비스</th>
+	</tr>
+	</table>
+	<hr>
+	<span style="font-size: 15px">111 Princes Boulevard<br>
+	전화 54-789-09876<br>
+	팩스 98-54-1234567<br>
+	체크인 2:00 PM, 체크아웃 12:00 PM 
+	</span>
+</div>
+
+--스위소텔 방콕 라차다, SBR903, 태국 방콕
+<style>
+  *{margin:0;padding:0;}
+  ul,li{list-style:none;}
+  #slide{height:300px;position:relative;overflow:hidden;}
+  #slide ul{width:400%;height:100%;transition:1s;}
+  #slide ul:after{content:"";display:block;clear:both;}
+  #slide li{float:left;width:25%;height:100%;}
+  #slide li:nth-child(1)
+  #slide li:nth-child(2)
+  #slide li:nth-child(3)
+  #slide li:nth-child(4)
+  #slide input{display:none;}
+  #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+  #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+  #pos1:checked~ul{margin-left:0%;}
+  #pos2:checked~ul{margin-left:-100%;}
+  #pos3:checked~ul{margin-left:-200%;}
+  #pos4:checked~ul{margin-left:-300%;}
+  #pos1:checked~.pos>label:nth-child(1){background:#666;}
+  #pos2:checked~.pos>label:nth-child(2){background:#666;}
+  #pos3:checked~.pos>label:nth-child(3){background:#666;}
+  #pos4:checked~.pos>label:nth-child(4){background:#666;}
+</style>
+<div id="slide" style="width: 50%; height: 500px; float: left; align: center;">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <ul>
+    <li><img src="./storage/a_SBR903_1.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_SBR903_2.jpg" width="100%" height="100%"/></li>
+    <li><img src="./storage/a_SBR903_3.jpg" width="100%" height="100%"/></li>
+  </ul>
+</div>
+<div style="width: 600px; height: 500px; float: right; text-align: left;">
+	<br>
+	<h1>스위소텔 방콕 라차다</h1>
+	Swissotel Bangkok Ratchada<br>
+	<hr>
+	<table>
+	<tr>
+		<th width="300px">- 무료 Wi-Fi (모든 객실)</th>
+		<th>- 레스토랑</th>
+	</tr>
+	<tr>
+		<th>- 여행 가방 보관 서비스</th>
+		<th>- 24시간 프런트 데스크</th>
+	</tr>
+	<tr>
+		<th>- 익스프레스 체크인/체크아웃</th>
+		<th>- 안전 금고</th>
+	</tr>
+	</table>
+	<hr>
+	<span style="font-size: 15px">204 Ratchadapisek Road Huaykwang<br>
+	전화 37-333-12345<br>
+	팩스 98-37-1234567<br>
+	체크인 2:00 PM, 체크아웃 12:00 PM 
+	</span>
+</div>
