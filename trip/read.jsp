@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <!-- 본문 시작-->
 <div>
     ${dto.trip_content}
@@ -40,9 +42,9 @@ function add () {
 	tr_price = document.form.tr_price;
 	hm.value ++ ;
 
-	sum1.value = parseInt(hm.value) * trip_cost1;
-	sum2.value = parseInt(hm2.value) * trip_cost2;
-	sum3.value = parseInt(hm3.value) * trip_cost3;
+	sum1.value = parseInt(hm.value) * parseInt(trip_cost1);
+	sum2.value = parseInt(hm2.value) * parseInt(trip_cost2);
+	sum3.value = parseInt(hm3.value) * parseInt(trip_cost3);
 	tr_price.value=parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 }
 function add2 () {
@@ -55,9 +57,9 @@ function add2 () {
 	tr_price = document.form.tr_price;
 	hm2.value ++ ;
 
-	sum1.value = parseInt(hm.value) * trip_cost1;
-	sum2.value = parseInt(hm2.value) * trip_cost2;
-	sum3.value = parseInt(hm3.value) * trip_cost3;
+	sum1.value = parseInt(hm.value) * parseInt(trip_cost1);
+	sum2.value = parseInt(hm2.value) * parseInt(trip_cost2);
+	sum3.value = parseInt(hm3.value) * parseInt(trip_cost3);
 	tr_price.value=parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 }
 function add3 () {
@@ -70,9 +72,9 @@ function add3 () {
 	tr_price = document.form.tr_price;
 	hm3.value ++ ;
 
-	sum1.value = parseInt(hm.value) * trip_cost1;
-	sum2.value = parseInt(hm2.value) * trip_cost2;
-	sum3.value = parseInt(hm3.value) * trip_cost3;
+	sum1.value = parseInt(hm.value) * parseInt(trip_cost1);
+	sum2.value = parseInt(hm2.value) * parseInt(trip_cost2);
+	sum3.value = parseInt(hm3.value) * parseInt(trip_cost3);
 	tr_price.value=parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 }
 
@@ -86,9 +88,9 @@ function del () {
 	tr_price = document.form.tr_price;
 		if (hm.value > 0) {
 			hm.value -- ;
-			sum1.value = parseInt(hm.value) * trip_cost1;
-			sum2.value = parseInt(hm2.value) * trip_cost2;
-			sum3.value = parseInt(hm3.value) * trip_cost3;
+			sum1.value = parseInt(hm.value) * parseInt(trip_cost1);
+			sum2.value = parseInt(hm2.value) * parseInt(trip_cost2);
+			sum3.value = parseInt(hm3.value) * parseInt(trip_cost3);
 			tr_price.value=parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 		}
 }
@@ -102,9 +104,9 @@ function del2 () {
 	tr_price = document.form.tr_price;
 		if (hm2.value > 0) {
 			hm2.value -- ;
-			sum1.value = parseInt(hm.value) * trip_cost1;
-			sum2.value = parseInt(hm2.value) * trip_cost2;
-			sum3.value = parseInt(hm3.value) * trip_cost3;
+			sum1.value = parseInt(hm.value) * parseInt(trip_cost1);
+			sum2.value = parseInt(hm2.value) * parseInt(trip_cost2);
+			sum3.value = parseInt(hm3.value) * parseInt(trip_cost3);
 			tr_price.value=parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 		}
 }
@@ -118,9 +120,9 @@ function del3 () {
 	tr_price = document.form.tr_price;
 		if (hm3.value > 0) {
 			hm3.value -- ;
-			sum1.value = parseInt(hm.value) * trip_cost1;
-			sum2.value = parseInt(hm2.value) * trip_cost2;
-			sum3.value = parseInt(hm3.value) * trip_cost3;
+			sum1.value = parseInt(hm.value) * parseInt(trip_cost1);
+			sum2.value = parseInt(hm2.value) * parseInt(trip_cost2);
+			sum3.value = parseInt(hm3.value) * parseInt(trip_cost3);
 			tr_price.value=parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 		}
 }
@@ -135,7 +137,7 @@ function change () {
 		if (hm.value < 0) {
 			hm.value = 0;
 		}
-	sum1.value = parseInt(hm.value) * trip_cost1;
+	sum1.value = parseInt(hm.value) * parseInt(trip_cost1);
 	tr_price.value= parseInt(sum1.value+sum2.value+sum3.value);
 	
 }  
@@ -149,7 +151,7 @@ function change2 () {
 		if (hm2.value < 0) {
 			hm2.value = 0;
 		}
-	sum2.value = parseInt(hm2.value) * trip_cost2;
+	sum2.value = parseInt(hm2.value) * parseInt(trip_cost2);
 	tr_price.value= parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 }
 function change3 () {
@@ -162,9 +164,39 @@ function change3 () {
 		if (hm3.value < 0) {
 			hm3.value = 0;
 		}
-	sum3.value = parseInt(hm3.value) * trip_cost3;
+	sum3.value = parseInt(hm3.value) * parseInt(trip_cost3);
 	tr_price.value= parseInt(sum1.value+sum2.value+sum3.value);
 }
+
+//날짜선택 함수
+$(function() {
+    $( "#tr_departure" ).datepicker({
+    	//showOn: "both",
+    	showButtonPanel: true, 
+    	currentText: '오늘 날짜', 
+        closeText: '닫기', 
+        dateFormat: "yy-mm-dd",
+        nextText: '다음 달',
+        prevText: '이전 달',
+        dayNamesMin: ['일','월', '화', '수', '목', '금', '토'],
+        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        minDate: 1, //내일 날짜부터 선택 가능.
+        maxDate: 30
+    });
+    $( "#tr_arrival" ).datepicker({
+    	//showOn: "both",
+    	showButtonPanel: true, 
+    	currentText: '오늘 날짜', 
+        closeText: '닫기', 
+        dateFormat: "yy-mm-dd",
+        nextText: '다음 달',
+        prevText: '이전 달',
+        dayNamesMin: ['일','월', '화', '수', '목', '금', '토'],
+        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        minDate: 3, //3일 후 날짜부터 선택가능.
+        maxDate: 33
+    });
+});
 </script>
 
 <div style="float:right; text-align: right; width: 30%;">
@@ -196,18 +228,37 @@ function change3 () {
 		
 		<td><input type="text" id="tr_price" name="tr_price" size="11" readonly>원</td>
 	</tr>
+	
+	<tr>
+	<td><br></td>
+	</tr>
+
+	<tr>
+	<td colspan="2"><h2>날짜 선택</h2></td>
+	</tr>
+	<tr>
+		<td>출발 날짜</td>
+		<td><input type="text" name="tr_departure" id="tr_departure" value="출발 날짜"></td>
+	</tr>
+	<tr>
+		<td>도착 날짜</td>
+		<td><input type="text" name="tr_arrival" id="tr_arrival" value="도착 날짜"></td>
+	</tr>
 	</table>
 	
 	<input type="hidden" name="sum1" size="11" readonly>
 	<input type="hidden" name="sum2" size="11" readonly>
 	<input type="hidden" name="sum3" size="11" readonly>
 	
-	<input type="hidden" id="th_code" name="trip_code" value="${dto.trip_code}"> 
+	<!-- 현재 로그인된 id와 여행상품코드 -->
+	<input type="hidden" id="trip_code" name="trip_code" value="${dto.trip_code}"> 
 	<input type="hidden" id="tu_id" name="tu_id" value="${sessionScope.s_tu_id}">
-
-	<br><br><br><br><br><br><br><br><br><br><br>
+	
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<input type="button" value="이전" class="btn btn-danger" onclick="javascript:history.back()">
 	<input type="submit" value="예약" class="btn btn-primary">
+	
 </form>
 </div>
 <hr>
