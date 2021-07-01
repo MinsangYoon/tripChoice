@@ -1,0 +1,30 @@
+-- 여행 상품 테이블 ( 썸네일 버전 )
+create table trip(
+ trip_code     varchar(50)    not null primary key       -- 상품코드
+ ,trip_area     varchar(10)   not null                         -- 지역
+ ,trip_name     varchar(100)  not null                            -- 상품명
+ ,trip_content  TEXT(65535)  not null                            -- 상품상세내용(스마트에디터)
+ ,trip_cost1    int(100)    not null                            -- 성인가격
+ ,trip_cost2    int(100)    not null                            -- 청소년가격
+ ,trip_cost3    int(100)    not null                            -- 유아가격
+ ,trip_possible int(100)        not null                            -- 패키지예약가능인원
+ ,trip_airpcost int(100)   null                            -- 항공권가격
+ ,trip_bedcost  int(100)  null                            -- 숙소가격
+ ,trip_situation varchar(50)  not null default 'Y'             -- 예약진행상황
+ ,trip_thumbnail varchar(100) null		
+);
+
+--상품예약테이블
+create table trip_reser(
+tr_code   int not null  primary key auto_increment,
+trip_code varchar(50) not null,
+tu_id       varchar(50) not null,
+tr_adult    int not null,
+tr_kid       int not null,
+tr_baby     int not null,
+tr_price   int  not null,
+tr_resdate   date    not null,
+tr_departure datetime   not null,
+tr_arrival      datetime   not null,
+tr_buy        varchar(50) not null default 'N'
+);

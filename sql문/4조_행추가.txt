@@ -1,0 +1,162 @@
+--김준욱-- 1. -유저정보 값-
+insert into tuser values ('tripchoice', 'trip12345', '관리자', 'tripchoice@naver.com', '010-1234-5678', '서울시 종로구', '2016-01-01', '관리자');
+insert into tuser values ('wldnjsejd12', '23457894', '손흥민', 'son@gmail.com', '010-0000-0003', '경기도 과천시', '2020-01-01', '우수회원');
+insert into tuser values ('emforhs624', '12346788', '김연아', 'kim@gmail.com', '010-0000-0004', '서울시 은평구', '2021-01-01', '우수회원');
+insert into tuser values ('jspark11', 'park1234', '박지성', 'jisung@jisung.com', '010-0000-0005', '경기도 남양주시', '2016-01-01', '우수회원');
+insert into tuser values ('minjikim12', 'min1234', '김민지', 'minji@jisung.com', '010-0000-0006', '경기도 남양주시', '2017-01-01', '일반회원');
+insert into tuser values ('kilee12', '15647894', '이강인', 'kang@gmail.com', '010-0000-0007', '서울시 강남구', '2018-01-01', '일반회원');
+insert into tuser values ('soldesk', '12314654', '솔데스크', 'sol@soldesk.com', '010-0000-0008', '서울시 종로구', '2019-01-01', '일반회원');
+insert into tuser values ('park', '56237841', '박찬호', 'park@daum.net', '010-0000-0010', '서울시강남구', '2021-01-01', '일반회원');
+
+insert into tuser values ('park', '56237841', '박찬호', 'park@daum.net', '010-0000-0010', '서울시강남구', default, default);
+insert into tuser (tu_id, tu_pw, tu_name, tu_email, tu_phone, tu_address, tu_joindate, tu_rank) values ('park2', '56237841', '박찬호', 'park@daum.net', '010-0000-0010', '서울시강남구', default, default);
+
+--김준욱-- 2. -항공기 값-
+insert into tairp (ta_code, ta_dep, ta_arr, ta_pax, ta_filghtnum) values ('82-1_KAL30', '대한민국', '하와이(미국령)', 150, 'KAL30')
+
+insert into t_airp values('82-1_KAL30', '대한민국', '하와이(미국령)', 150, 'KAL30');
+insert into t_airp values('1-82_KAL40', '하와이(미국령)', '대한민국', '150', 'KAL40');
+insert into t_airp values('82-86_AAL20', '대한민국', '상하이(중국)', '200', 'AAL20');
+insert into t_airp values('86-82_AAL30', '상하이(중국)', '대한민국', '200', 'AAL30');
+insert into t_airp values('82-66_DAL20', '대한민국', '방콕(태국)', '200', 'DAL20');
+insert into t_airp values('66-82_DAL30', '방콕(태국)', '대한민국', '200', 'DAL30');
+
+
+
+--이병훈 -- 3. 여행상품 테이블
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('k-001','제주','한라산 등반여행','한반도 남쪽에서 가장 높은 한라산을 등반 할수 있는 기회입니다!','80000','50000','30000','20','100000','200000','예약중');
+
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('k-002','경주','경주 문화유산 여행','경주 문화유산에 대해 배우며 여행할수 있는 기회입니다!','50000','30000','15000','20','80000','80000','예약중');
+
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('k-003','서울','서울 문화유산 여행','대한민국 수도 서울의 문화유산을 견학 할 수 있는 여행입니다','50000','30000','15000','16','70000','70000','예약마감');
+
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('k-004','인천','인천 월미도 파라다이스 여행','인천 월미도 바다로 갑시다','50000','30000','15000','10','40000','40000','예약중');
+
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('a-001','하와이(미국령)','하와이 힐링 여행','코로나로 지친 당신! 하와이 힐링여행을 가자!','1500000','1000000','750000','16','1500000','1300000','예약마감');
+
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('a-002','영국','손흥민 경기 직관 가자!','대한민국의 자랑스런 손흥민 선수의 토트넘 경기를 직관 할 수 있는 기회!','2000000','1500000','1000000','30','2000000','1800000','예약마감');
+
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('a-003','중국 상하이','대한민국 임시정부를 가다','대한민국의 자랑스런 임시정부를 가볼 수 있는 기회!','1000000','850000','600000','26','1000000','700000','예약중');
+
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('a-078','태국','태국 효도 관광여행','부담스럽지 않은 가격으로 부모님께 풍성한 볼거리를 제공해 드립니다','900000','800000','500000','10','900000','700000','예약중');
+
+insert into trip(trip_code,trip_area,trip_name,trip_content,trip_cost1,trip_cost2,trip_cost3,trip_possible,trip_airpcost,trip_bedcost,trip_situation)
+values ('a-021','캐나다','더운여름 나이아가라 폭포로 가자','더운 여름 나이아가라 폭포로 가자!','2000000','1500000','1000000','16','2000000','1800000','예약마감');
+
+
+--윤민상 -- 4. 숙소 정보
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('GHHIH201','Grand hyatt hotel','201','하와이','오션뷰,더블룸,조식,hyatt.png',4);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('GHHIH202','Grand hyatt hotel','202','하와이','오션뷰,더블룸,조식,hyatt.png',4);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('GHHIH203','Grand hyatt hotel','203','하와이','오션뷰,더블룸,조식,hyatt.png',4);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('GHHIH204','Grand hyatt hotel','204','하와이','오션뷰,더블룸,조식,hyatt.png',4);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('PHIS1010','Paradise hotel','1010','태국','환상적인 파라다이스,조식,paradise.png',8);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('PHIS1020','Paradise hotel','1020','태국','환상적인 파라다이스,조식,paradise.png',8);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('PHIS1030','Paradise hotel','1030','태국','환상적인 파라다이스,조식,paradise.png',8);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('PHIS1040','Paradise hotel','1040','태국','환상적인 파라다이스,조식,paradise.png',8);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('HHIS303','Hilton hotel','303','중국 상하이','세계적인 힐튼 호텔,조식,Hilton.png',6);
+
+INSERT INTO t_hotel (th_code,th_name,th_room,th_reg,th_content,th_max)
+VALUES ('GHIB2001','Global hotel','2001','캐나다','글로벌 호텔,조식,Global.png',4);
+
+--윤민상-- 5.--숙소예약테이블 데이터 삽입
+INSERT INTO hotel_reser (th_code,tu_id,thr_member,thr_in,thr_out,trip_code)
+VALUES('GHHIH202','jspark11',2,'2021-07-01-17:30','2021-07-11-11:30','a-001');
+
+INSERT INTO hotel_reser (th_code,tu_id,thr_member,thr_in,thr_out,trip_code)
+VALUES('GHHIH203','minjikim12',3,'2021-07-01-17:30','2021-07-11-11:30','a-001');
+
+INSERT INTO hotel_reser (th_code,tu_id,thr_member,thr_in,thr_out,trip_code)
+VALUES('PHIS1010','soldesk',5,'2021-07-08-18:30','2021-07-15-11:30','a-078');
+
+INSERT INTO hotel_reser (th_code,tu_id,thr_member,thr_in,thr_out,trip_code)
+VALUES('HHIS303','emforhs624',4,'2021-07-10-18:30','2021-07-20-11:30','a-003');
+
+INSERT INTO hotel_reser (th_code,tu_id,thr_member,thr_in,thr_out,trip_code)
+VALUES('GHIB2001','wldnjsejd12',3,'2021-07-10-18:30','2021-07-21-11:30','a-021');
+
+
+--유영승 -- 6. 상품예약테이블
+INSERT INTO trip_reser VALUES ( 
+default,'a-078', 'soldesk', 2,2,1, 3900000, now(), '2021-06-20 10:30:00', '2021-06-28 21:30:00', 'Y'
+);
+INSERT INTO trip_reser VALUES ( 
+default,'a-021', 'wldnjsejd12', 2,1,0, 5500000, now(), '2021-07-10 18:30:00', '2021-07-21 11:30:00','Y'
+);
+INSERT INTO trip_reser VALUES ( 
+default,'a-003', 'emforhs624', 4,0,0, 8000000, now(), '2021-07-10 10:30:00', '2021-07-19 22:30:00','Y'
+);
+INSERT INTO trip_reser VALUES ( 
+default,'a-001', 'jspark11', 2,0,0, 3000000, now(), '2021-07-01 17:30:00', '2021-07-11 23:30:00','N'
+);
+INSERT INTO trip_reser VALUES ( 
+default,'a-002', 'kilee12', 2,0,0, 2000000, now(), '2021-07-05 17:30:00', '2021-07-21 17:30:00','N'
+);
+INSERT INTO trip_reser VALUES ( 
+default,'a-001', 'minjikim12', 3,0,0, 4500000, now(), '2021-07-01 17:30:00', '2021-07-11 23:30:00','N'
+);
+
+--유영승-- 7. 항공권 예약
+INSERT INTO airp_reser VALUES('82-1_KAL301A', '82-1_KAL30', '1A', 'jspark11',	'박지성', '2021-07-01-17:30',	'2021-07-01-22:30',	'a-001');
+
+INSERT INTO airp_reser VALUES('82-1_KAL301A', '82-1_KAL30', '2A', 'jspark11',	'김민지', '2021-07-01-17:30',	'2021-07-01-22:30',	'a-001');
+
+
+
+INSERT INTO airp_reser ((tar_code, ta_code, tar_seat, tu_id, tar_name, tar_sdate, tar_fdate, trip_code) 
+VALUES ('82-1_KAL301A', '82-1_KAL30',	'1A',	'jspark11',	'박지성',	'2021-07-01-17:30',	'2021-07-01-22:30',	'a-001');
+
+
+
+--이병훈-- 자주찾는 질문
+insert into tbrq(tbrq_sub,tbrq_con,tbrq_cnt,tbrq_date)
+values ('취소 수수료','일주일전까지 100% 환불가능','124','2020-01-22');
+
+
+--송찬우 -- 문의
+
+insert into trq (trq_sub,tu_id,trq_pw,trq_con,trq_comcon,trq_date,trq_comdate)
+values('질문있습니다','emforhs624','1234','여행 중 각자 즐길수 있는 시간이 있나요','물론 있습니다.가이드님께서 전달해주실겁니다. 감사합니다',now(),now());
+
+insert into trq (trq_sub,tu_id,trq_pw,trq_con,trq_comcon,trq_date,trq_comdate)
+values('항상고생하십니다','kilee12','1234','가족들끼리 움직일수 있을까요?','가능합니다. 감사합니다',now(),now());
+
+INSERT INTO trq (trq_sub,tu_id,trq_pw,trq_con,trq_comcon,trq_date,trq_comdate)
+valuse('안녕하세요','jspark11','1234','안녕하세요 궁금합니다','네 언제든지 문의주세요. 감사합니다',now(),now());
+
+
+
+--송찬우-- 리뷰
+
+insert into trv(trv_sub,tu_id,trip_code,trv_con,trv_pw,trv_date,trv_score)
+values('행복한 패키지 여행이었습니다','soldesk','a-078','너무나도 좋은 시간 가지게 해주셔서 감사합니다','1234',now(),'*****');
+
+insert into trv(trv_sub,tu_id,trip_code,trv_con,trv_pw,trv_date,trv_score)
+values('좋은 패키지 기획이네요','emforhs624','a-003','좋은 시간이였습니다. 감사합니다','1234',now(),'****');
+
+insert into trv(trv_sub,tu_id,trip_code,trv_con,trv_pw,trv_date,trv_score)
+values('부모님과 좋은 시간이었습니다','kilee12','a-002','행복했습니다','1234',now(),'***');
