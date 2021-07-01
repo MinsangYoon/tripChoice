@@ -43,7 +43,7 @@
 							<li><a href="<%=request.getContextPath()%>/t_hotel/t_hotelForm.do">숙소등록</a></li>
 							<li><a href="<%=request.getContextPath()%>/t_hotel/t_hotel_list_admin.do">숙소목록</a></li>
 							<li><a href="<%=request.getContextPath()%>/t_airp/ticket.do">항공권등록</a></li>
-							<li><a href="<%=request.getContextPath()%>/t_airp/list.do">항공권 예약</a></li>
+							<li><a href="<%=request.getContextPath()%>/t_airp/list.do">항공권목록</a></li>
 						</ul></li>
 				</c:if>	
 				
@@ -77,26 +77,14 @@
 					data-toggle="dropdown" href="#" style="color: white">국내<span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">서울(수도권)</a></li>
-						<li><a href="#">강원</a></li>
-						<li><a href="#">충청</a></li>
-						<li><a href="#">전라</a></li>
-						<li><a href="#">경상</a></li>
-						<li><a href="#">제주</a></li>
+						<li><a href="<%=request.getContextPath()%>/trip/trip_list_korea.do">국내전체</a></li>
+						<li><a href="<%=request.getContextPath()%>/trip/trip_list_jeju.do">제주</a></li>
 					</ul></li>
 
 			</ul>
 			<ul class="topright2">
-				<li class=:dropdown><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#" style="color: white">해외<span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">아시아</a></li>
-						<li><a href="#">유럽</a></li>
-						<li><a href="#">북미</a></li>
-						<li><a href="#">남미</a></li>
-						<li><a href="#">아프리카</a></li>
-					</ul></li>
+				<li class=:dropdown><a href="<%=request.getContextPath()%>/trip/trip_list_abroad.do" style="color: white">해외</a>
+
 			</ul>
 
 			<div class="item active">
@@ -453,7 +441,7 @@
 					<strong>문의사항</strong>
 				</p>
 				<p>언제든지 문의하세요~</p>
-				<a href="index.do" class="btn btn-success">문의사항 바로가기</a>
+				<a href="<%=request.getContextPath()%>/trq/trqList.do" class="btn btn-success">문의사항 바로가기</a>
 			</div>
 		</div>
 		<div class="col-sm-3">
