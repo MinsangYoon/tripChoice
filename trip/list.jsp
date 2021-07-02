@@ -2,60 +2,52 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <style>
- 	{font-family:gulim; font-size: 24px;}
- </style>
+div.gallery {
+  margin: 30px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 300px;
+  height: 400px;
+}
 
-<!-- 본문 시작-->
-<div class="content" align="center">
-	<!--  admin 사용자만 상품등록 버튼 활성화 -->
-	<c:if test="${sessionScope.s_tu_rank =='admin'}">
-		<input type="button" value="여행상품등록" onclick="location.href='createForm.do'"  class="btn btn-info" >
-	</c:if>	
-		<input type="button" value="HOME"   onclick="location.href='${root}/index.do'" class="btn btn-success" >
-		
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+
+<h2>상품 목록</h2>
+
+
+<div class="container">
+
+<c:forEach var="dto" items="${list}">
+<div class="gallery">
+  <a href="trip_read.do?trip_code=${dto.trip_code}">
+    <img src="./thumbnail/${dto.trip_thumbnail}" style="width: 100%; height: 45%;">
+  </a>
+  <div class="desc">
+  	<a href="trip_read.do?trip_code=${dto.trip_code}">
+  	<span style="font-size: 20px; font-weight: bold;">[${dto.trip_area}] ${dto.trip_name}</span></a> 
+  	<br><br> 
+  	<div style="text-align: left;"><span style="font-family: sans-serif;">${dto.trip_cost1}원~</span> &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">20%할인</span>
+  	<br><br>예약가능인원 : ${dto.trip_possible}명
+  	</div>
+  </div>
 </div>
-<hr>
-	
-    <table class="table table-bordered" style="width: 70%; margin-left: auto; margin-right: auto;">
-    <thead style="background-color: gray;" >
-    <tr style="color: white;">
-    	<th style="text-align: center;">사진</th>
-    	<th style="text-align: center;">상품명</th>
-    	<th style="text-align: center;">지역</th>
-    	<th style="text-align: center;">가격</th>
-    	<th style="text-align: center;">패키지예약가능인원</th>
-    </tr>
-    </thead>
-    
-    <tbody>
-    <c:forEach var="dto" items="${list}">
-    <tr>
-    	<th width="200px"><img src="./thumbnail/${dto.trip_thumbnail}" width="200px" height="200px"></th>
-    	<th><a href="trip_read.do?trip_code=${dto.trip_code}">${dto.trip_name}</a></th>
-    	<th>${dto.trip_area}</th>
-    	<th>${dto.trip_cost1}원</th>
-    	<th>${dto.trip_possible}명</th>
-    </tr>
-    </c:forEach>
-    </tbody>	
-    </table>
-    
-    <!-- 검색시작 -->
-		<table align="center">
-		<tr >
-      		<td colspan="4" style="text-align: center; height: 50px">
-      			<form action="trip_list_admin.do" onsubmit="return searchCheck()">
-      				<select name="col">
-      					<option value="trip_area">지역</option>
-      					<option value="trip_name">상품명</option>
-      				</select>
-				    <input type="text" name="word" id="word">
-		            <input type="submit" value="검색" class="btn btn-info">
-      			</form>
-      		</td>
-		</tr>
-		</table>
-		<!-- 검색끝 -->
-<!-- 본문 끝-->
+</c:forEach>
+
+</div>
+
+<div style="clear: both;"></div>
 
 <%@ include file="../footer.jsp" %>        
