@@ -179,6 +179,7 @@ function change3 () {
 $(function() {
     $( "#tr_departure" ).datepicker({
     	//showOn: "both",
+    	//buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
     	showButtonPanel: true, 
     	currentText: '오늘 날짜', 
         closeText: '닫기', 
@@ -208,23 +209,23 @@ $(function() {
 
 <div style="float:right; text-align: right; width: 30%;">
 <br>
-<form name="form" method="post" action="${root}/trip_reser/trip_reser_insert.do">
+<form name="form" method="post" action="${root}/trip_reser/trip_reser_insert.do" onsubmit="return dateCheck()">
 	<h2>인원선택</h2>
 	<table align="right">
 	<tr>
-		<td width="100px" height="100px" style="text-align: center;">성인<br>${dto.trip_cost1}원</td> 
+		<td width="110px" height="100px" style="text-align: center;">성인<br><span style="font-weight: bold;">${dto.trip_cost1}원</span></td> 
 		<td width="200px;"><input type=hidden name="trip_cost1" value="${dto.trip_cost1}">
 		<input type="text" name="tr_adult" value="0" size="3" onchange="change();">
 		<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"></td>
 	</tr>
 	<tr>
-		<td width="100px" height="100px" style="text-align: center;">청소년<br>${dto.trip_cost2}원</td> 
+		<td width="100px" height="100px" style="text-align: center;">청소년<br><span style="font-weight: bold;">${dto.trip_cost2}원</span></td> 
 		<td width="200px;"><input type=hidden name="trip_cost2" value="${dto.trip_cost2}">
 		<input type="text" name="tr_kid" value="0" size="3" onchange="change2();">
 		<input type="button" value=" + " onclick="add2();"><input type="button" value=" - " onclick="del2();"></td>
 	</tr>
 	<tr>
-		<td width="100px" height="100px" style="text-align: center;">유아<br>${dto.trip_cost3}원</td> 
+		<td width="100px" height="100px" style="text-align: center;">유아<br><span style="font-weight: bold;">${dto.trip_cost3}원</span></td> 
 		<td width="200px;"><input type=hidden name="trip_cost3" value="${dto.trip_cost3}">
 		<input type="text" name="tr_baby" value="0" size="3" onchange="change3();">
 		<input type="button" value=" + " onclick="add3();"><input type="button" value=" - " onclick="del3();"></td>
