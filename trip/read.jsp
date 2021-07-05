@@ -145,7 +145,7 @@ function change () {
 			hm.value = 0;
 		}
 	sum1.value = parseInt(hm.value) * parseInt(trip_cost1);
-	tr_price.value= parseInt(sum1.value+sum2.value+sum3.value);
+	tr_price.value= parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 	
 }  
 function change2 () {
@@ -172,14 +172,13 @@ function change3 () {
 			hm3.value = 0;
 		}
 	sum3.value = parseInt(hm3.value) * parseInt(trip_cost3);
-	tr_price.value= parseInt(sum1.value+sum2.value+sum3.value);
+	tr_price.value= parseInt(sum1.value)+parseInt(sum2.value)+parseInt(sum3.value);
 }
 
 //날짜선택 함수
 $(function() {
     $( "#tr_departure" ).datepicker({
     	//showOn: "both",
-    	//buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
     	showButtonPanel: true, 
     	currentText: '오늘 날짜', 
         closeText: '닫기', 
@@ -201,10 +200,36 @@ $(function() {
         prevText: '이전 달',
         dayNamesMin: ['일','월', '화', '수', '목', '금', '토'],
         monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        minDate: 3, //3일 후 날짜부터 선택가능.
-        maxDate: 33
+        //minDate: departure.value + "00-00-10",
+        //maxDate: 33
     });
+    
 });
+
+function test() {
+	departure = document.form.tr_departure;
+	arrival = document.form.tr_arrival;
+	var date = new Date(departure.value);
+	//var year = date.getFullYear();
+	//var month = ('0' + (date.getMonth() + 1)).slice(-2);
+	//var day = ('0' + date.getDate()).slice(-2);
+	//var dateString = year + '-' + month  + '-' + day;
+	date.setDate(date.getDate()+3); //3대신에 정해진 여행일수 쓰면 됨.
+	
+		var d = new Date(date), 
+		month = '' + (d.getMonth() + 1), 
+		day = '' + d.getDate(),
+		year = d.getFullYear(); 
+		if (month.length < 2)
+			month = '0' + month;
+		if (day.length < 2)
+			day = '0' + day; 
+		var a = [year, month, day].join('-');
+		
+	arrival.value=a;
+	
+}
+
 </script>
 
 <div style="float:right; text-align: right; width: 30%;">
@@ -246,7 +271,7 @@ $(function() {
 	</tr>
 	<tr>
 		<td>출발 날짜</td>
-		<td><input type="text" name="tr_departure" id="tr_departure" value="출발 날짜"></td>
+		<td><input type="text" name="tr_departure" id="tr_departure" value="출발 날짜" onchange="test();"></td>
 	</tr>
 	<tr>
 		<td>도착 날짜</td>
