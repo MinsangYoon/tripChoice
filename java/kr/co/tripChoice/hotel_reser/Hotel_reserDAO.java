@@ -28,27 +28,59 @@ public class Hotel_reserDAO {
 	
 	
 	//비즈니스로직 구현
-	public int create(Hotel_reserDTO dto) {
+	public int create(Hotel_reserDTO dto) { //숙소예약테이블에 insert
 		int cnt=0;
 		try {
 			con = dbopen.getConnection();
 			sql = new StringBuilder();
 			sql.append(" INSERT INTO hotel_reser(th_code,tu_id,thr_member,trip_code) ");
-			sql.append(" VALUES( ?,?,?,'test01' ) ");
+			sql.append(" VALUES( ?,?,?,? ) ");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getTh_code());
 			pstmt.setString(2, dto.getTu_id());
 			pstmt.setInt(3, dto.getThr_member());
-			//pstmt.setString(4, dto.getTrip_code()); //상품예약페이지와 연결시키면 사용.
+			pstmt.setString(4, dto.getTrip_code());
 			cnt = pstmt.executeUpdate();
 			
 			//예약가능여부 'N'으로 변경하기
-			sql.delete(0, sql.length());
+			sql.delete(0, sql.length()); //위에서 썼던 sql문 초기화.
 			sql.append(" UPDATE t_hotel ");
 			sql.append(" SET th_situation='N' ");
 			sql.append(" WHERE th_code=? ");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getTh_code());
+			pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println("숙소예약실패:"+e);
+		}finally {
+			DBClose.close(con, pstmt);
+		}//end
+		
+		return cnt;
+	}//create() end
+	
+	public int create2(String th_code, String tu_id, int thr_member, String trip_code) { //숙소예약테이블에 insert
+		int cnt=0;
+		try {
+			con = dbopen.getConnection();
+			sql = new StringBuilder();
+			sql.append(" INSERT INTO hotel_reser(th_code,tu_id,thr_member,trip_code) ");
+			sql.append(" VALUES( ?,?,?,? ) ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, th_code);
+			pstmt.setString(2, tu_id);
+			pstmt.setInt(3, thr_member);
+			pstmt.setString(4, trip_code);
+			cnt = pstmt.executeUpdate();
+			
+			//예약가능여부 'N'으로 변경하기
+			sql.delete(0, sql.length()); //위에서 썼던 sql문 초기화.
+			sql.append(" UPDATE t_hotel ");
+			sql.append(" SET th_situation='N' ");
+			sql.append(" WHERE th_code=? ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, th_code);
 			pstmt.executeUpdate();
 			
 		}catch(Exception e){
