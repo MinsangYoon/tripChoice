@@ -55,6 +55,32 @@ public class Trip_reserDAO {
 		return cnt;
 	}//create() end
 	
+	public int create2(String trip_code, String tu_id, int tr_adult, int tr_kid, int tr_baby, int tr_price, String tr_departure, String tr_arrival) {
+		int cnt=0;
+		try {
+			con = dbopen.getConnection();
+			sql = new StringBuilder();
+			sql.append(" INSERT INTO trip_reser(trip_code,tu_id,tr_adult,tr_kid,tr_baby,tr_price,tr_resdate,tr_departure,tr_arrival) ");
+			sql.append(" VALUES( ?,?,?,?,?,?,now(),?,? ) ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, trip_code);
+			pstmt.setString(2, tu_id);
+			pstmt.setInt(3, tr_adult);
+			pstmt.setInt(4, tr_kid);
+			pstmt.setInt(5, tr_baby);
+			pstmt.setInt(6, tr_price);
+			pstmt.setString(7, tr_departure);
+			pstmt.setString(8, tr_arrival);
+			
+			cnt = pstmt.executeUpdate();
+		}catch(Exception e){
+			System.out.println("상품예약실패:"+e);
+		}finally {
+			DBClose.close(con, pstmt);
+		}//end
+		return cnt;
+	}//create() end
+	
 	
 	
 }//class end
