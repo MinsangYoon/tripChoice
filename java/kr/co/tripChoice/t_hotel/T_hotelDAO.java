@@ -189,11 +189,11 @@ public class T_hotelDAO {
 			sql = new StringBuilder();
 			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_max ");
 			sql.append(" FROM t_hotel ");
-			sql.append(" WHERE th_reg=? ");
+			sql.append(" WHERE th_reg LIKE ? ");
 			sql.append(" ORDER BY th_code DESC ");
 			
 			pstmt=con.prepareStatement(sql.toString());
-			pstmt.setString(1, trip_area);
+			pstmt.setString(1, "%"+trip_area+"%");
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				list=new ArrayList<T_hotelDTO>();//전체 행을 저장
