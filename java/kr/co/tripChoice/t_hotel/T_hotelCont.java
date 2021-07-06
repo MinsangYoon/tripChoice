@@ -1,7 +1,12 @@
 package kr.co.tripChoice.t_hotel;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +28,7 @@ public class T_hotelCont {
 	
 	
 	
-	// http://localhost:9090/tripChoice/t_hotel/t_hotelForm.do
+	//http://localhost:9090/tripChoice/t_hotel/t_hotelForm.do
 	//숙소등록 페이지 호출
 	@RequestMapping("t_hotel/t_hotelForm.do") 
 	public String t_hotelForm() {
@@ -49,9 +54,24 @@ public class T_hotelCont {
 	
 	//숙소상세보기
 	@RequestMapping("t_hotel/t_hotel_read.do")
-	public String t_hotelRead(Model model, String th_code) {
+	public String t_hotelRead(Model model, String th_code, String trip_code,HttpServletRequest req) {
 		T_hotelDTO dto = dao.read(th_code);
+		
+		String tr_adult = req.getParameter("tr_adult");
+		String tr_kid = req.getParameter("tr_kid");
+		String tr_baby = req.getParameter("tr_baby");
+		String tr_price = req.getParameter("tr_price");
+		String tr_departure = req.getParameter("tr_departure");
+		String tr_arrival = req.getParameter("tr_arrival");
+		model.addAttribute("tr_adult",tr_adult);
+		model.addAttribute("tr_kid",tr_kid);
+		model.addAttribute("tr_baby",tr_baby);
+		model.addAttribute("tr_price",tr_price);
+		model.addAttribute("tr_departure",tr_departure);
+		model.addAttribute("tr_arrival",tr_arrival);
+		
 		model.addAttribute("dto",dto);
+		model.addAttribute("trip_code",trip_code);
 		model.addAttribute("root",Utility.getRoot());
 		return "t_hotel/t_hotelRead";
 	}//t_hotelRead() end
@@ -98,5 +118,36 @@ public class T_hotelCont {
 			return "t_hotel/msg";
 		}//if end
 	}//t_hotelDeleteproc() end
+	
+	
+	//숙소리스트 출력(해당 지역만)
+	@RequestMapping("t_hotel/t_hotel_list.do")
+	public String t_hotelList2(Model model, HttpServletRequest req) {
+		String trip_area = req.getParameter("trip_area");
+		String tr_adult = req.getParameter("tr_adult");
+		String tr_kid = req.getParameter("tr_kid");
+		String tr_baby = req.getParameter("tr_baby");
+		String tr_price = req.getParameter("tr_price");
+		String tr_departure = req.getParameter("tr_departure");
+		String tr_arrival = req.getParameter("tr_arrival");
+		
+		String trip_code = req.getParameter("trip_code");
+		
+		List<T_hotelDTO> list= dao.list(trip_area);
+		
+		model.addAttribute("trip_code",trip_code);
+		model.addAttribute("tr_adult",tr_adult);
+		model.addAttribute("tr_kid",tr_kid);
+		model.addAttribute("tr_baby",tr_baby);
+		model.addAttribute("tr_price",tr_price);
+		model.addAttribute("tr_departure",tr_departure);
+		model.addAttribute("tr_arrival",tr_arrival);
+		
+		
+		model.addAttribute("root",Utility.getRoot());
+		model.addAttribute("list",list);
+		
+		return "t_hotel/t_hotelList";
+	}//t_hotelList2() end
 
 }//class end
