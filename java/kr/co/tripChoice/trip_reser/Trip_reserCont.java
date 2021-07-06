@@ -30,9 +30,20 @@ public class Trip_reserCont {
 	
 	
 	
-	@RequestMapping(value = "trip_reser/trip_reser_insert.do", method = RequestMethod.POST)
+	@RequestMapping(value = "trip_reser/trip_reser_insert.do")
 	public String trip_reser_insert(Model model, HttpServletRequest req, Trip_reserDTO dto) {
-		int cnt= dao.create(dto);
+		String trip_code = req.getParameter("trip_code");
+		int tr_adult = Integer.parseInt(req.getParameter("tr_adult"));
+		int tr_kid = Integer.parseInt(req.getParameter("tr_kid"));
+		int tr_baby = Integer.parseInt(req.getParameter("tr_baby"));
+		int tr_price = Integer.parseInt(req.getParameter("tr_price"));
+		String tr_departure = req.getParameter("tr_departure");
+		String tr_arrival = req.getParameter("tr_arrival");
+		String tu_id = req.getParameter("tu_id");
+		
+		model.addAttribute("root",Utility.getRoot());
+		
+		int cnt= dao.create2(trip_code, tu_id, tr_adult, tr_kid, tr_baby, tr_price, tr_departure, tr_arrival);
 		
 		if(cnt==1) {
 		return "trip_reser/msg";
