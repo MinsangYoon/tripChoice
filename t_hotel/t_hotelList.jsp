@@ -16,7 +16,7 @@
     <tbody>
     <c:forEach var="dto" items="${list}">
     <tr>
-    	<th><a href="t_hotel_read.do?th_code=${dto.th_code}">${dto.th_name}</a></th>
+    	<th><a href="t_hotel_read.do?th_code=${dto.th_code}&trip_code=${trip_code}&tr_adult=${tr_adult}&tr_kid=${tr_kid}&tr_baby=${tr_baby}&tr_price=${tr_price}&tr_departure=${tr_departure}&tr_arrival=${tr_arrival}">${dto.th_name}</a></th>
     	<th>${dto.th_reg}</th>
     	<th>${dto.th_room}</th>
     	<th>${dto.th_max}</th>
