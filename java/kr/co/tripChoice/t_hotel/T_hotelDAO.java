@@ -171,12 +171,52 @@ public class T_hotelDAO {
 			}//if end
 			
 		}catch(Exception e){
-			System.out.println("숙소수정실패:"+e);
+			System.out.println("숙소삭제실패:"+e);
 		}finally {
 			DBClose.close(con, pstmt);
 		}//end
 		
 		return cnt;
 	}//delete() end
+	 
+	//해당 지역 숙소만 리스트
+	public ArrayList<T_hotelDTO> list(String trip_area) {
+		//DB에서 가져온 데이터(rs)를 한꺼번에 모아서(ArrayList)
+		list=null;
+		
+		try {
+			con=dbopen.getConnection(); //DB연결
+			sql = new StringBuilder();
+			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_max ");
+			sql.append(" FROM t_hotel ");
+			sql.append(" WHERE th_reg=? ");
+			sql.append(" ORDER BY th_code DESC ");
+			
+			pstmt=con.prepareStatement(sql.toString());
+			pstmt.setString(1, trip_area);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				list=new ArrayList<T_hotelDTO>();//전체 행을 저장
+				do {
+					//커서가 가리키는 한 줄 저장
+					T_hotelDTO dto=new T_hotelDTO();
+					dto.setTh_code(rs.getString("th_code"));
+					dto.setTh_name(rs.getString("th_name"));
+					dto.setTh_room(rs.getString("th_room"));
+					dto.setTh_reg(rs.getString("th_reg"));
+					dto.setTh_content(rs.getString("th_content"));
+					dto.setTh_max(rs.getInt("th_max"));
+					list.add(dto);//반복할 동안 list에 한 줄씩 추가. 
+				}while(rs.next());//다음 줄 있을 때까지 반복.
+			}//if end
+			
+		}catch (Exception e) {
+			System.out.println("숙소 리스트 실패:"+e);
+		}finally {
+			DBClose.close(con, pstmt, rs);
+		}//end
+		
+		return list;
+	}//list_admin() end
 	
 }//class end
