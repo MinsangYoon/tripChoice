@@ -179,6 +179,7 @@ function change3 () {
 $(function() {
     $( "#tr_departure" ).datepicker({
     	//showOn: "both",
+    	//buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
     	showButtonPanel: true, 
     	currentText: '오늘 날짜', 
         closeText: '닫기', 
@@ -200,12 +201,12 @@ $(function() {
         prevText: '이전 달',
         dayNamesMin: ['일','월', '화', '수', '목', '금', '토'],
         monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        //minDate: departure.value + "00-00-10",
-        //maxDate: 33
+        minDate: 3, //3일 후 날짜부터 선택가능.
+        maxDate: 33
     });
-    
 });
 
+/*
 function test() {
 	departure = document.form.tr_departure;
 	arrival = document.form.tr_arrival;
@@ -229,12 +230,12 @@ function test() {
 	arrival.value=a;
 	
 }
-
+*/
 </script>
 
 <div style="float:right; text-align: right; width: 30%;">
 <br>
-<form name="form" method="post" action="${root}/trip_reser/trip_reser_insert.do" onsubmit="return dateCheck()">
+<form name="form" method="post" action="${root}/t_hotel/t_hotel_list.do" onsubmit="return dateCheck()">
 	<h2>인원선택</h2>
 	<table align="right">
 	<tr>
@@ -271,7 +272,7 @@ function test() {
 	</tr>
 	<tr>
 		<td>출발 날짜</td>
-		<td><input type="text" name="tr_departure" id="tr_departure" value="출발 날짜" onchange="test();"></td>
+		<td><input type="text" name="tr_departure" id="tr_departure" value="출발 날짜" ></td>
 	</tr>
 	<tr>
 		<td>도착 날짜</td>
@@ -286,12 +287,13 @@ function test() {
 	<!-- 현재 로그인된 id와 여행상품코드 -->
 	<input type="hidden" id="trip_code" name="trip_code" value="${dto.trip_code}"> 
 	<input type="hidden" id="tu_id" name="tu_id" value="${sessionScope.s_tu_id}">
+	<input type="hidden" id="trip_area" name="trip_area" value="${dto.trip_area}"> 
 	
 	
 	<c:if test="${not empty sessionScope.s_tu_id }"><!-- 로그인 해야만 보임. -->
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<input type="button" value="이전" class="btn btn-danger" onclick="javascript:history.back()">
-		<input type="submit" value="예약" class="btn btn-primary">
+		<input type="submit" value="숙소선택" class="btn btn-primary">
 	</c:if>
 	
 </form>
