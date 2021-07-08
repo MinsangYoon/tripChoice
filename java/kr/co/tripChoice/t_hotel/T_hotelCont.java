@@ -82,10 +82,20 @@ public class T_hotelCont {
 	
 	//숙소상세보기
 	@RequestMapping("t_hotel/t_hotel_read.do")
-	public String t_hotelRead(Model model, String th_code) {
+	public String t_hotelRead(Model model, String th_code, HttpServletRequest req) {
+		String thr_adult=req.getParameter("thr_adult");
+		String thr_kid=req.getParameter("thr_kid");
+		String thr_in=req.getParameter("thr_in");
+		String thr_out=req.getParameter("thr_out");
+		
 		T_hotelDTO dto = dao.read(th_code);
 		model.addAttribute("dto",dto);
 		model.addAttribute("root",Utility.getRoot());
+		model.addAttribute("thr_adult",thr_adult);
+		model.addAttribute("thr_kid",thr_kid);
+		model.addAttribute("thr_in",thr_in);
+		model.addAttribute("thr_out",thr_out);
+		
 		return "t_hotel/t_hotelRead";
 	}//t_hotelRead() end
 	
@@ -158,30 +168,23 @@ public class T_hotelCont {
 	//숙소리스트 출력(해당 지역만)
 	@RequestMapping("t_hotel/t_hotel_list.do")
 	public String t_hotelList2(Model model, HttpServletRequest req) {
-		String trip_area = req.getParameter("trip_area");
-		String tr_adult = req.getParameter("tr_adult");
-		String tr_kid = req.getParameter("tr_kid");
-		String tr_baby = req.getParameter("tr_baby");
-		String tr_price = req.getParameter("tr_price");
-		String tr_departure = req.getParameter("tr_departure");
-		String tr_arrival = req.getParameter("tr_arrival");
+		String th_reg=req.getParameter("th_reg");
+		String thr_adult=req.getParameter("thr_adult");
+		String thr_kid=req.getParameter("thr_kid");
+		int total_people = Integer.parseInt(thr_adult)+Integer.parseInt(thr_kid); //총 인원 수
+		String thr_in = req.getParameter("thr_in");
+		String thr_out = req.getParameter("thr_out");
 		
-		String trip_code = req.getParameter("trip_code");
 		
-		List<T_hotelDTO> list= dao.list(trip_area);
-		
-		model.addAttribute("trip_code",trip_code);
-		model.addAttribute("tr_adult",tr_adult);
-		model.addAttribute("tr_kid",tr_kid);
-		model.addAttribute("tr_baby",tr_baby);
-		model.addAttribute("tr_price",tr_price);
-		model.addAttribute("tr_departure",tr_departure);
-		model.addAttribute("tr_arrival",tr_arrival);
-		model.addAttribute("trip_area",trip_area);
-		
+		List<T_hotelDTO> list =dao.list(th_reg,total_people, thr_in, thr_out);
 		
 		model.addAttribute("root",Utility.getRoot());
 		model.addAttribute("list",list);
+		model.addAttribute("thr_adult",thr_adult);
+		model.addAttribute("thr_kid",thr_kid);
+		model.addAttribute("thr_in",thr_in);
+		model.addAttribute("thr_out",thr_out);
+		
 		
 		return "t_hotel/t_hotelList";
 	}//t_hotelList2() end
