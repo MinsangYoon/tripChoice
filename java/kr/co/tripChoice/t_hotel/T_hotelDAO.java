@@ -28,26 +28,32 @@ public class T_hotelDAO {
 	
 	
 	//비즈니스로직 구현
-	public void create(T_hotelDTO dto) {
+	public int create(T_hotelDTO dto) {
 		int cnt=0;
 		try {
 			con = dbopen.getConnection();
 			sql = new StringBuilder();
-			sql.append(" INSERT INTO t_hotel(th_code,th_name,th_room,th_reg,th_content,th_max) ");
-			sql.append(" VALUES( ?,?,?,?,?,? ) ");
+			sql.append(" INSERT INTO t_hotel(th_code,th_name,th_room,th_reg,th_content,th_cost1,th_cost2,th_cost3,th_max,th_thumbnail,th_situation) ");
+			sql.append(" VALUES( ?,?,?,?,?,?,?,?,?,?,? ) ");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getTh_code());
 			pstmt.setString(2, dto.getTh_name());
 			pstmt.setString(3, dto.getTh_room());
 			pstmt.setString(4, dto.getTh_reg());
 			pstmt.setString(5, dto.getTh_content());
-			pstmt.setInt(6, dto.getTh_max());
+			pstmt.setInt(6, dto.getTh_cost1());
+			pstmt.setInt(7, dto.getTh_cost2());
+			pstmt.setInt(8, dto.getTh_cost3());
+			pstmt.setInt(9, dto.getTh_max());
+			pstmt.setString(10, dto.getTh_thumbnail());
+			pstmt.setString(11, dto.getTh_situation());
 			cnt = pstmt.executeUpdate();
 		}catch(Exception e){
 			System.out.println("숙소등록실패:"+e);
 		}finally {
 			DBClose.close(con, pstmt);
 		}//end
+		return cnt;
 	}//create() end
 	
 	public ArrayList<T_hotelDTO> list_admin() {
@@ -57,7 +63,7 @@ public class T_hotelDAO {
 		try {
 			con=dbopen.getConnection(); //DB연결
 			sql = new StringBuilder();
-			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_max ");
+			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_cost1,th_cost2,th_cost3,th_max,th_thumbnail,th_situation ");
 			sql.append(" FROM t_hotel ");
 			sql.append(" ORDER BY th_code DESC ");
 			
@@ -73,7 +79,12 @@ public class T_hotelDAO {
 					dto.setTh_room(rs.getString("th_room"));
 					dto.setTh_reg(rs.getString("th_reg"));
 					dto.setTh_content(rs.getString("th_content"));
+					dto.setTh_cost1(rs.getInt("th_cost1"));
+					dto.setTh_cost2(rs.getInt("th_cost2"));
+					dto.setTh_cost3(rs.getInt("th_cost3"));
 					dto.setTh_max(rs.getInt("th_max"));
+					dto.setTh_thumbnail(rs.getString("th_thumbnail"));
+					dto.setTh_situation(rs.getString("th_situation"));
 					list.add(dto);//반복할 동안 list에 한 줄씩 추가. 
 				}while(rs.next());//다음 줄 있을 때까지 반복.
 			}//if end
@@ -92,7 +103,7 @@ public class T_hotelDAO {
 		try {
 			con = dbopen.getConnection();
 			sql = new StringBuilder();
-			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_max ");
+			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_cost1,th_cost2,th_cost3,th_max,th_thumbnail,th_situation ");
 			sql.append(" FROM t_hotel ");
 			sql.append(" WHERE th_code=? ");
 			pstmt = con.prepareStatement(sql.toString());
@@ -105,7 +116,12 @@ public class T_hotelDAO {
 				dto.setTh_room(rs.getString("th_room"));
 				dto.setTh_reg(rs.getString("th_reg"));
 				dto.setTh_content(rs.getString("th_content"));
+				dto.setTh_cost1(rs.getInt("th_cost1"));
+				dto.setTh_cost2(rs.getInt("th_cost2"));
+				dto.setTh_cost3(rs.getInt("th_cost3"));
 				dto.setTh_max(rs.getInt("th_max"));
+				dto.setTh_thumbnail(rs.getString("th_thumbnail"));
+				dto.setTh_situation(rs.getString("th_situation"));
 			}//if end
 		}catch(Exception e){
 			System.out.println("숙소상세보기실패:"+e);
@@ -122,7 +138,7 @@ public class T_hotelDAO {
 			con = dbopen.getConnection();
 			sql = new StringBuilder();
 			sql.append(" UPDATE t_hotel ");
-			sql.append(" SET th_code=?,th_name=?,th_room=?,th_reg=?,th_content=?,th_max=? ");
+			sql.append(" SET th_code=?,th_name=?,th_room=?,th_reg=?,th_content=?,th_cost1=?,th_cost2=?,th_cost3=?,th_max=?,th_thumbnail=?,th_situation=? ");
 			sql.append(" WHERE th_code=? ");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getTh_code());
@@ -130,8 +146,12 @@ public class T_hotelDAO {
 			pstmt.setString(3, dto.getTh_room());
 			pstmt.setString(4, dto.getTh_reg());
 			pstmt.setString(5, dto.getTh_content());
-			pstmt.setInt(6, dto.getTh_max());
-			pstmt.setString(7, dto.getTh_code());
+			pstmt.setInt(6, dto.getTh_cost1());
+			pstmt.setInt(7, dto.getTh_cost2());
+			pstmt.setInt(8, dto.getTh_cost3());
+			pstmt.setInt(9, dto.getTh_max());
+			pstmt.setString(10, dto.getTh_thumbnail());
+			pstmt.setString(11, dto.getTh_situation());
 			cnt = pstmt.executeUpdate();
 		}catch(Exception e){
 			System.out.println("숙소수정실패:"+e);
@@ -180,20 +200,20 @@ public class T_hotelDAO {
 	}//delete() end
 	 
 	//해당 지역 숙소만 리스트
-	public ArrayList<T_hotelDTO> list(String trip_area) {
+	public ArrayList<T_hotelDTO> list(String th_reg) {
 		//DB에서 가져온 데이터(rs)를 한꺼번에 모아서(ArrayList)
 		list=null;
 		
 		try {
 			con=dbopen.getConnection(); //DB연결
 			sql = new StringBuilder();
-			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_max ");
+			sql.append(" SELECT th_code,th_name,th_room,th_reg,th_content,th_cost1,th_cost2,th_cost3,th_max,th_thumbnail,th_situation ");
 			sql.append(" FROM t_hotel ");
 			sql.append(" WHERE th_reg LIKE ? ");
 			sql.append(" ORDER BY th_code DESC ");
 			
 			pstmt=con.prepareStatement(sql.toString());
-			pstmt.setString(1, "%"+trip_area+"%");
+			pstmt.setString(1, "%"+th_reg+"%");
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				list=new ArrayList<T_hotelDTO>();//전체 행을 저장
@@ -205,7 +225,12 @@ public class T_hotelDAO {
 					dto.setTh_room(rs.getString("th_room"));
 					dto.setTh_reg(rs.getString("th_reg"));
 					dto.setTh_content(rs.getString("th_content"));
+					dto.setTh_cost1(rs.getInt("th_cost1"));
+					dto.setTh_cost2(rs.getInt("th_cost2"));
+					dto.setTh_cost3(rs.getInt("th_cost3"));
 					dto.setTh_max(rs.getInt("th_max"));
+					dto.setTh_thumbnail(rs.getString("th_thumbnail"));
+					dto.setTh_situation(rs.getString("th_situation"));
 					list.add(dto);//반복할 동안 list에 한 줄씩 추가. 
 				}while(rs.next());//다음 줄 있을 때까지 반복.
 			}//if end
