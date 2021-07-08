@@ -29,7 +29,10 @@ public class Hotel_reserCont {
 	public String hotel_reser_insert(Hotel_reserDTO dto, Model model) {
 		int cnt = dao.create(dto);
 		
+		model.addAttribute("root",Utility.getRoot());
+		
 		if(cnt==1) {
+		
 		return "hotel_reser/msg";
 		}else {
 			return "";
