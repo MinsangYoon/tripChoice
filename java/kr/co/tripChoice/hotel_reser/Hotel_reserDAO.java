@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,17 +35,16 @@ public class Hotel_reserDAO {
 		try {
 			con = dbopen.getConnection();
 			sql = new StringBuilder();
-			sql.append(" INSERT INTO hotel_reser(th_code,tu_id,thr_adult,thr_kid,thr_baby,thr_price,thr_resdate,thr_in,thr_out) ");
-			sql.append(" VALUES( ?,?,?,?,?,?,now(),?,? ) ");
+			sql.append(" INSERT INTO hotel_reser(th_code,tu_id,thr_adult,thr_kid,thr_price,thr_resdate,thr_in,thr_out) ");
+			sql.append(" VALUES( ?,?,?,?,?,now(),?,? ) ");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getTh_code());
 			pstmt.setString(2, dto.getTu_id());
 			pstmt.setInt(3, dto.getThr_adult());
 			pstmt.setInt(4, dto.getThr_kid());
-			pstmt.setInt(5, dto.getThr_baby());
-			pstmt.setInt(6, dto.getThr_price());
-			pstmt.setString(7, dto.getThr_in());
-			pstmt.setString(8, dto.getThr_out());
+			pstmt.setInt(5, dto.getThr_price());
+			pstmt.setString(6, dto.getThr_in());
+			pstmt.setString(7, dto.getThr_out());
 			
 			cnt = pstmt.executeUpdate();
 			
