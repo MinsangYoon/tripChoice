@@ -10,7 +10,7 @@
 <!-- 관리자만 작성 가능 -->
 <c:if test="${sessionScope.s_tu_rank =='admin'}">
 
-	<form name="memfrm" id="memfrm" method="post" action="t_hotel_create.do">
+	<form name="memfrm" id="memfrm" method="post" action="t_hotel_create.do" enctype="multipart/form-data">
 	<span style="color:red; font-weight: bold">로그인된 id : ${sessionScope.s_tu_id }</span>
 	<br>
 	<table class="table">
@@ -50,10 +50,40 @@
 	    </td>
 	</tr>
 	<tr>
+	    <th>*성인가격</th>
+	    <td style="text-align:left">
+	    <input type="number" name="th_cost1" id="th_cost1" required min="1">
+	    </td>
+	</tr>
+	<tr>
+	    <th>*청소년가격</th>
+	    <td style="text-align:left">
+	    <input type="number" name="th_cost2" id="th_cost2" required min="1">
+	    </td>
+	</tr>
+	<tr>
+	    <th>*유아가격</th>
+	    <td style="text-align:left">
+	    <input type="number" name="th_cost3" id="th_cost3" required min="1">
+	    </td>
+	</tr>
+	<tr>
 	    <th>*최대인원</th>
 	    <td style="text-align:left">
 	    <input type="number" name="th_max" id="th_max" required min="1">
 	    </td>
+	</tr>
+	<tr>
+	      <th>*썸네일</th>
+	      <td><input type='file' name='thumbnailMF' size='50'></td>    
+	</tr>
+	<tr>  
+  		<th>예약진행상황</th>
+ 		 <td style="text-align:left"><select name="th_situation" id="th_situation">
+          <option value="Y" selected>예약중</option>
+          <option value="N">예약마감</option>
+        </select>
+  		</td>
 	</tr>
 	<tr>
 	    <td colspan="2" style="text-align:center">
